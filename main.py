@@ -29,7 +29,7 @@ try:
     # Move to '仕事をさがす' page after login suucessfully
     driver.get('https://crowdworks.jp/public/jobs?category=jobs&order=score&ref=mypage_nav1')
 
-    new_jobs = {'job_id': [], 'item_name':[], 'url':[], 'kw':[], 'recorded_datetime':[]}
+    new_jobs = {'job_id': [], 'item_name':[], 'url':[], 'client_name':[], 'price':[]}
     for k in keywords:
         print(f'Working on {k}...')
         driver.find_element(By.NAME, 'search[keywords]').send_keys(k)
@@ -37,14 +37,16 @@ try:
         job_ids = driver.find_elements(by=By.XPATH, value='//div[@class="search_results"]/ul/li')
         urls = driver.find_elements(by=By.XPATH, value='//h3[@class="item_title"]/a')
         item_titles = driver.find_elements(By.CLASS_NAME, 'item_title')
-        for j, i, u in zip(job_ids, item_titles, urls):
-            job_id = j.get_attribute("data-job_offer_id")
+        client_names = driver.find_elements(by=By.XPATH, value='//div[@class="client-information"]/span[@class="user-name"]')
+        prices = driver.find_elements(By.CLASS_NAME, 'entry_data_row')
+        for j, i, u, c, p in zip(job_ids, item_titles, urls, client_names, prices):
+            job_id = int(j.get_attribute("data-job_offer_id"))
             if job_id not in latest_ids:
-                new_jobs['kw'].append(k)
+                new_jobs['client_name'].append(c.text)
                 new_jobs['job_id'].append(job_id)
                 new_jobs['item_name'].append(i.text)
                 new_jobs['url'].append(u.get_attribute('href'))
-                new_jobs['recorded_datetime'].append(now)
+                new_jobs['price'].append(p.text)
         driver.find_element(By.NAME, 'search[keywords]').clear()
 
     new_jobs = pd.DataFrame(new_jobs).drop_duplicates(subset=['job_id'])
