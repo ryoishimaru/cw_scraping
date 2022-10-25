@@ -52,7 +52,8 @@ try:
         driver.find_element(By.NAME, 'search[keywords]').clear()
 
     new_jobs = pd.DataFrame(new_jobs).drop_duplicates(subset=['job_id'])
-    new_jobs = new_jobs[~new_jobs['price'].str.contains('募集終了')]
+    if len(new_jobs) > 0:
+        new_jobs = new_jobs[~new_jobs['price'].str.contains('募集終了')]
     print(f'{len(new_jobs)} new jobs detected.')
 
     all_jobs = pd.concat([latest_jobs, new_jobs]).drop_duplicates(subset=['job_id'])
