@@ -46,7 +46,9 @@ try:
                 new_jobs['job_id'].append(job_id)
                 new_jobs['item_name'].append(i.text)
                 new_jobs['url'].append(u.get_attribute('href'))
-                new_jobs['price'].append(p.text)
+                new_jobs['price'].append(str(p.text))
+                print(p.text)
+                print('---')
         driver.find_element(By.NAME, 'search[keywords]').clear()
 
     new_jobs = pd.DataFrame(new_jobs).drop_duplicates(subset=['job_id'])
