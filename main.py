@@ -3,10 +3,10 @@ from selenium.webdriver.common.by import By
 #from time import sleep
 from redmail import gmail
 import pandas as pd
-import datetime
+# import datetime
 
 # Configurations
-now = datetime.datetime.now()
+# now = datetime.datetime.now()
 latest_record_csv = 'latest_1000ids.csv'
 latest_jobs = pd.read_csv(latest_record_csv)
 latest_ids = latest_jobs['job_id'].tolist()
@@ -18,7 +18,7 @@ gmail.password = 'ztbpamtijsfuffcy'
 
 driver = webdriver.Chrome('./chromedriver')
 password = "Tw35dfgcs"
-keywords = ['データ分析', 'BI', 'ダッシュボード', 'API', 'tableau', 'gcp', '機械学習', 'Python']
+keywords = ['データ分析', 'BI', 'ダッシュボード', 'API', 'tableau', 'gcp', '機械学習', 'Python', 'データ基盤']
 
 # login
 try:
