@@ -18,7 +18,8 @@ gmail.password = 'ztbpamtijsfuffcy'
 
 driver = webdriver.Chrome('./chromedriver')
 password = "Tw35dfgcs"
-keywords = ['データ分析', 'BI', 'ダッシュボード', 'API', 'tableau', 'gcp', '機械学習', 'Python', 'データ基盤', 'マーケティング']
+keywords = ['データ分析', 'BI', 'ダッシュボード', 'API', 'tableau', 'データポータル', 'Looker', 'QuickSight', 'gcp', '機械学習', 'Python', 'データ基盤', 'マーケティング', '画像認識']
+ng_words = ['スマホ', 'コピペ', 'ライター', 'SEO', 'リスティング', '記事', 'アンケート', 'ロゴの作成', 'デザイン作成'] #keywords to be ignored in job description
 
 # login
 try:
@@ -29,7 +30,7 @@ try:
     # Move to '仕事をさがす' page after login suucessfully
     driver.get('https://crowdworks.jp/public/jobs?category=jobs&order=score&ref=mypage_nav1')
 
-    new_jobs = {'job_id': [], 'item_name':[], 'url':[], 'client_name':[], 'price':[]}
+    new_jobs = {'job_id': [], 'title':[], 'url':[], 'client_name':[], 'price':[], 'keyword': []}
     for k in keywords:
         print(f'Working on {k}...')
         driver.find_element(By.NAME, 'search[keywords]').send_keys(k)
@@ -39,15 +40,17 @@ try:
         item_titles = driver.find_elements(By.CLASS_NAME, 'item_title')
         client_names = driver.find_elements(by=By.XPATH, value='//div[@class="client-information"]/span[@class="user-name"]')
         prices = driver.find_elements(By.CLASS_NAME, 'entry_data_row')
-        for j, i, u, c, p in zip(job_ids, item_titles, urls, client_names, prices):
+        for j, t, u, c, p in zip(job_ids, item_titles, urls, client_names, prices):
             job_id = int(j.get_attribute("data-job_offer_id"))
-            if job_id not in latest_ids:
+            title_name = t.text
+            if (job_id not in latest_ids) and (any(ext in title_name for ext in ng_words) != True):
                 new_jobs['client_name'].append(c.text)
                 new_jobs['job_id'].append(job_id)
-                new_jobs['item_name'].append(i.text)
+                new_jobs['title'].append(title_name)
                 new_jobs['url'].append(u.get_attribute('href'))
                 new_jobs['price'].append(str(p.text))
-                print(p.text)
+                new_jobs['keyword'].append(k)
+                print(title_name)
                 print('---')
         driver.find_element(By.NAME, 'search[keywords]').clear()
 
