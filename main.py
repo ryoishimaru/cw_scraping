@@ -18,7 +18,7 @@ gmail.password = 'ztbpamtijsfuffcy'
 
 driver = webdriver.Chrome('./chromedriver')
 password = "Tw35dfgcs"
-keywords = ['データ分析', 'BI', 'ダッシュボード', 'API', 'tableau', 'gcp', '機械学習', 'Python', 'データ基盤']
+keywords = ['データ分析', 'BI', 'ダッシュボード', 'API', 'tableau', 'gcp', '機械学習', 'Python', 'データ基盤', 'マーケティング']
 
 # login
 try:
