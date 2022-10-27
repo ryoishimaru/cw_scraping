@@ -3,10 +3,12 @@ from selenium.webdriver.common.by import By
 #from time import sleep
 from redmail import gmail
 import pandas as pd
-# import datetime
+import yaml
+from yaml.loader import SafeLoader
 
 # Configurations
-# now = datetime.datetime.now()
+with open('keywords.yml') as f:
+    kw = yaml.load(f, Loader=SafeLoader)
 latest_record_csv = 'latest_1000ids.csv'
 latest_jobs = pd.read_csv(latest_record_csv)
 latest_ids = latest_jobs['job_id'].tolist()
@@ -18,12 +20,8 @@ gmail.password = 'ztbpamtijsfuffcy'
 
 driver = webdriver.Chrome('./chromedriver')
 password = "Tw35dfgcs"
-keywords = ['データ分析', 'BI', 'ダッシュボード', 'API', 'tableau', 'データポータル', 'Looker', 'QuickSight', 'gcp', '機械学習', 'Python', 'データ基盤', 'マーケティング', '画像認識']
-ng_words = ['スマホ', 'コピペ', 'ライター', 'SEO',
-            'リスティング', '記事', 'アンケート', 'ロゴの作成',
-            'デザイン作成', 'イラスト作成', 'カンタン',
-            '簡単！', '女性限定', 'レビュー募集', 'SNSマーケティング',
-            'インフルエンサー'] #keywords to be ignored in job description
+keywords = kw['keywords']
+ng_words = kw['ng_words'] #keywords to be ignored in job description
 
 # login
 try:
