@@ -49,7 +49,7 @@ try:
             title_name = t.text
             status = s.text
             if (job_id not in latest_ids) and (any(ext in title_name for ext in ng_words) != True)\
-                and status != '募集終了' and c.text not in ['Lancers Agent', 'PROsheet', 'パーソルテクノロジースタッフ']:
+                and status != '募集終了' and c.text not in ['Lancers Agent', 'PROsheet', 'パーソルテクノロジースタッフ', 'MENTA']:
                 new_jobs['client_name'].append(c.text)
                 new_jobs['job_id'].append(job_id)
                 new_jobs['title'].append(title_name)
