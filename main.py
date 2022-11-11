@@ -45,12 +45,13 @@ try:
         for j, t, u, c, p in zip(job_ids, item_titles, urls, client_names, prices):
             job_id = int(j.get_attribute("data-job_offer_id"))
             title_name = t.text
-            if (job_id not in latest_ids) and (any(ext in title_name for ext in ng_words) != True):
+            price_info = str(p.text)
+            if (job_id not in latest_ids) and (any(ext in title_name for ext in ng_words) != True) and ('タスク' not in price_info):
                 new_jobs['client_name'].append(c.text)
                 new_jobs['job_id'].append(job_id)
                 new_jobs['title'].append(title_name)
                 new_jobs['url'].append(u.get_attribute('href'))
-                new_jobs['price'].append(str(p.text))
+                new_jobs['price'].append(price_info)
                 new_jobs['keyword'].append(k)
                 print(title_name)
                 print('---')
