@@ -48,13 +48,15 @@ try:
             job_id = str(u.get_attribute('href').split('/')[-1])
             title_name = t.text
             status = s.text
+            price_info = str(p.text)
             if (job_id not in latest_ids) and (any(ext in title_name for ext in ng_words) != True)\
-                and status != '募集終了' and c.text not in ['Lancers Agent', 'PROsheet', 'パーソルテクノロジースタッフ', 'MENTA']:
+                and status != '募集終了' and c.text not in ['Lancers Agent', 'PROsheet', 'パーソルテクノロジースタッフ', 'MENTA']\
+                and ('コンペ' not in price_info):
                 new_jobs['client_name'].append(c.text)
                 new_jobs['job_id'].append(job_id)
                 new_jobs['title'].append(title_name)
                 new_jobs['url'].append(u.get_attribute('href'))
-                new_jobs['price'].append(str(p.text))
+                new_jobs['price'].append(price_info)
                 new_jobs['keyword'].append(k)
                 print(title_name)
                 print('---')
