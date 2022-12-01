@@ -50,7 +50,7 @@ try:
             status = s.text
             price_info = str(p.text)
             if (job_id not in latest_ids) and (any(ext in title_name for ext in ng_words) != True)\
-                and status != '募集終了' and c.text not in ['Lancers Agent', 'PROsheet', 'パーソルテクノロジースタッフ', 'MENTA']\
+                and status != '募集終了' and c.text not in ['Lancers Agent', 'PROsheet', 'パーソルテクノロジースタッフ']\
                 and ('コンペ' not in price_info):
                 new_jobs['client_name'].append(c.text)
                 new_jobs['job_id'].append(job_id)
