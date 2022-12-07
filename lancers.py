@@ -19,7 +19,7 @@ gmail.user_name = email
 gmail.password = 'ztbpamtijsfuffcy'
 
 driver = webdriver.Chrome('./chromedriver')
-password = "nDdstCb4Bky?P8zb"
+password = "pkD9E5&amssEcc?D"
 keywords = kw['keywords']
 ng_words = kw['ng_words'] #keywords to be ignored in job description
 
