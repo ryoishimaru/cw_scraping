@@ -46,8 +46,9 @@ try:
             job_id = int(j.get_attribute("data-job_offer_id"))
             title_name = t.text
             price_info = str(p.text)
-            if (job_id not in latest_ids) and (any(ext in title_name for ext in ng_words) != True) and ('タスク' not in price_info):
-                new_jobs['client_name'].append(c.text)
+            client_name = c.text
+            if (job_id not in latest_ids) and (any(ext in title_name for ext in ng_words) != True) and ('タスク' not in price_info) and (client_name not in ['skillupai']):
+                new_jobs['client_name'].append(client_name)
                 new_jobs['job_id'].append(job_id)
                 new_jobs['title'].append(title_name)
                 new_jobs['url'].append(u.get_attribute('href'))
