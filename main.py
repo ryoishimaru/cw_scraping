@@ -47,7 +47,7 @@ try:
             title_name = t.text
             price_info = str(p.text)
             client_name = c.text
-            if (job_id not in latest_ids) and (any(ext in title_name for ext in ng_words) != True) and ('タスク' not in price_info) and (client_name not in ['skillupai']):
+            if (job_id not in latest_ids) and (any(ext in title_name for ext in ng_words) != True) and ('タスク' not in price_info) and (client_name not in ['skillupai', 'Crewto']):
                 new_jobs['client_name'].append(client_name)
                 new_jobs['job_id'].append(job_id)
                 new_jobs['title'].append(title_name)

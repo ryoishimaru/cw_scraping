@@ -1,12 +1,4 @@
 job_id,item_name,url,client_name,price,title,keyword
-4004020,,https://www.lancers.jp/work/detail/4004020,CRUT,"タスク
-50 円 / 件 募集期間 21 日",【男性向け４】顔画像に対する好感度調査,機械学習
-4004042,,https://www.lancers.jp/work/detail/4004042,CRUT,"タスク
-50 円 / 件 募集期間 21 日",【女性向け４】顔画像に対する好感度調査,機械学習
-4130409,,https://www.lancers.jp/work/detail/4130409,CRUT,"タスク
-110 円 / 件 募集期間 21 日",【男性向け２】適正価格調査,機械学習
-4286746,,https://www.lancers.jp/work/detail/4286746,yuzumochi1028,"プロジェクト
-6,000 円 ~ 7,000 円 / 募集期間 2 日、取引期間 7 日",自動でweb上のデータを抽出し、エクセルに保存するプログラムの作成,Python
 4262587,,https://www.lancers.jp/work/detail/4262587,banana,"プロジェクト
 30,000 円 ~ 40,000 円 / 募集期間 5 日、取引期間 17 日","初回
 既存（過去）のFlask/Pythonのコードをベースに、簡単な新規アプリ制作。ラズパイ上です。",Python
@@ -3126,3 +3118,15 @@ Yahoo!広告 スクリプトを使用したスプレッドシートへのデー�
 20,000 円 ~ 50,000 円 / 固定","NEW
 初回
 Twitterを使ったマーケティング",マーケティング
+4466728,,https://www.lancers.jp/work/detail/4466728,media_blog,"プロジェクト
+300,000 円 ~ 500,000 円 / 固定","NEW
+【固定報酬＋歩合】Webマーケティングの営業としてオンライン商談して頂ける方募集（アポ取り不要）",マーケティング
+4467170,,https://www.lancers.jp/work/detail/4467170,TeamSV,"プロジェクト
+~ 5,000 円 / 固定","NEW
+1本9,000円【ラブコメ漫画のキャラの線画担当様、大募集！】",データ分析
+4466950,,https://www.lancers.jp/work/detail/4466950,ryt1021,"プロジェクト
+300,000 円 ~ 500,000 円 / 固定","NEW
+FX 為替 業者間レイテンシーシステム作成",API
+9609,,https://www.lancers.jp/onsite/job/9609,(株)ACG (aozora91),"求人
+後で決める","NEW
+GAS（≒JavaScirpt）によるデータ加工処理のツール作成",GAS
