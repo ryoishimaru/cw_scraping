@@ -44,8 +44,11 @@ try:
         client_names = driver.find_elements(By.CLASS_NAME, 'c-avatar__note')
         prices = driver.find_elements(By.CLASS_NAME, 'c-media__job-stats')
         job_status = driver.find_elements(By.CLASS_NAME, 'c-media__job-time__ttl')
+
         for t, u, c, p, s in zip(item_titles, urls, client_names, prices, job_status):
+            print(f'this is: {t.text}')
             job_id = str(u.get_attribute('href').split('/')[-1])
+            print(job_id)
             title_name = t.text
             status = s.text
             price_info = str(p.text)
