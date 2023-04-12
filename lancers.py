@@ -43,12 +43,24 @@ try:
         item_titles = driver.find_elements(By.CLASS_NAME, 'c-media__title-inner')
         client_names = driver.find_elements(By.CLASS_NAME, 'c-avatar__note')
         prices = driver.find_elements(By.CLASS_NAME, 'c-media__job-stats')
-        job_status = driver.find_elements(By.CLASS_NAME, 'c-media__job-time__ttl')
+        job_status = driver.find_elements(By.CLASS_NAME, 'p-search-job-media__time-text')
+
+        # print(item_titles[0].text)
+        # print(urls[0].get_attribute('href'))
+        # print(client_names[0].text)
+        # print(prices[0].text)
+        # print(job_status[0].text)
+        # quit()
+
+        # Validation to check if the driver is catching data or not.
+        for v in [urls, item_titles, client_names, prices, job_status]:
+            if len(v) == 0:
+                raise Exception("Driver is not correctly catching the data.")
+
 
         for t, u, c, p, s in zip(item_titles, urls, client_names, prices, job_status):
-            print(f'this is: {t.text}')
+            #print(f'this is: {t.text}')
             job_id = str(u.get_attribute('href').split('/')[-1])
-            print(job_id)
             title_name = t.text
             status = s.text
             price_info = str(p.text)
