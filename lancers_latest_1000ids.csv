@@ -1,90 +1,101 @@
-job_id,item_name,url,client_name,price,title,keyword
-4509288,,https://www.lancers.jp/work/detail/4509288,huangyuguang,"プロジェクト
+job_id,url,client_name,price,title,keyword
+4509288,https://www.lancers.jp/work/detail/4509288,huangyuguang,"プロジェクト
 100,000 円 ~ 200,000 円 / 固定","NEW
 車用品の卸戦略策定",データ分析
-4506823,,https://www.lancers.jp/work/detail/4506823,イシカワ,"プロジェクト
+4506823,https://www.lancers.jp/work/detail/4506823,イシカワ,"プロジェクト
 1,000,000 円 ~ 3,000,000 円 / 固定","NEW
 国内大手製造メーカーにおけるデータ分析基盤構築プロジェクト支援メンバー募集！",データ分析
-4508783,,https://www.lancers.jp/work/detail/4508783,Telexistence株式会社,"プロジェクト
+4508783,https://www.lancers.jp/work/detail/4508783,Telexistence株式会社,"プロジェクト
 20,000 円 ~ 50,000 円 / 固定","NEW
 初回
 Asana から Google BigQuery へのデータ連携構築 他",ダッシュボード
-4507180,,https://www.lancers.jp/work/detail/4507180,株式会社NOVASTO,"プロジェクト
+4507180,https://www.lancers.jp/work/detail/4507180,株式会社NOVASTO,"プロジェクト
 50,000 円 ~ 100,000 円 / 固定","NEW
 Looker Studio (旧Google Data Studio)を使った、ダッシュボード作成",ダッシュボード
-4509117,,https://www.lancers.jp/work/detail/4509117,yuhoiwane,"プロジェクト
-50,000 円 ~ 100,000 円 / 固定","NEW
-初回
-求人サイトの保守点検と改修の提案",API
-4505519,,https://www.lancers.jp/work/detail/4505519,株式会社ロジクエスト,"プロジェクト
+4505519,https://www.lancers.jp/work/detail/4505519,株式会社ロジクエスト,"プロジェクト
 50,000 円 ~ 100,000 円 / 固定","NEW
 2回目
 限定公開
 APIを使用したデータ移行",API
-4507702,,https://www.lancers.jp/work/detail/4507702,株式会社 BALANCe,"プロジェクト
+4507702,https://www.lancers.jp/work/detail/4507702,株式会社 BALANCe,"プロジェクト
 20,000 円 ~ 50,000 円 / 固定","NEW
 CMSエンジニア（自社オウンドメディアの改修・または受託案件のCMS部分）募集",API
-4504571,,https://www.lancers.jp/work/detail/4504571,WHITE DISH株式会社,"プロジェクト
+4504571,https://www.lancers.jp/work/detail/4504571,WHITE DISH株式会社,"プロジェクト
 20,000 円 ~ 50,000 円 / 固定",【継続依頼有り】Googleデータポータル（LookerStudio）のレポート・提案作成,データポータル
-4509358,,https://www.lancers.jp/work/detail/4509358,kenshiro-murakami,"プロジェクト
+4509358,https://www.lancers.jp/work/detail/4509358,kenshiro-murakami,"プロジェクト
 500,000 円 ~ 1,000,000 円 / 固定","NEW
 自社で数値を見るためのシステム(Looker Studioで実施いただきたい)の　開発",Looker
-4506969,,https://www.lancers.jp/work/detail/4506969,ライティングワークス,"プロジェクト
+4506969,https://www.lancers.jp/work/detail/4506969,ライティングワークス,"プロジェクト
 100,000 円 ~ 200,000 円 / 固定","NEW
 AI資格であるE資格の試験対策用問題集の作成",機械学習
-4510351,,https://www.lancers.jp/work/detail/4510351,SHIRASAWA YOSHIYUKI,"プロジェクト
+4511092,https://www.lancers.jp/work/detail/4511092,Tomohi,"プロジェクト
+200,000 円 ~ 300,000 円 / 固定","NEW
+広告媒体の運用Webアプリの開発",Python
+4510807,https://www.lancers.jp/work/detail/4510807,た,"プロジェクト
+~ 5,000 円 / 固定","NEW
+Pythonで作成されたシステムのUI修正",Python
+4510351,https://www.lancers.jp/work/detail/4510351,SHIRASAWA YOSHIYUKI,"プロジェクト
 50,000 円 ~ 100,000 円 / 固定","NEW
 Youtube LIVEのチャットの自動化をお願いしたいです",Python
-4509603,,https://www.lancers.jp/work/detail/4509603,boze_108,"プロジェクト
+4509603,https://www.lancers.jp/work/detail/4509603,boze_108,"プロジェクト
 50,000 円 ~ 100,000 円 / 固定","NEW
 chatGPTに経典を学習（ファインチューニング？）させ、仏教が得意なAIを作っていただきたいです。",Python
-4505935,,https://www.lancers.jp/work/detail/4505935,sakaidesign,"プロジェクト
+4505935,https://www.lancers.jp/work/detail/4505935,sakaidesign,"プロジェクト
 200,000 円 ~ 300,000 円 / 固定",オンラインワインショップ２３軒の特定銘柄のワイン90種類の価格データを集めるツールの制作,Python
-4505752,,https://www.lancers.jp/work/detail/4505752,オオノ,"プロジェクト
+4505752,https://www.lancers.jp/work/detail/4505752,オオノ,"プロジェクト
 10,000 円 ~ 20,000 円 / 固定",PCを起動しないで、あるサイトからファイルを定期的にダウンロードしてWeb上のドライブに保存したい,Python
-4509124,,https://www.lancers.jp/work/detail/4509124,media_blog,"プロジェクト
-20,000 円 ~ 50,000 円 / 固定 0.50 円 / 文字","NEW
-【急募/構成案用意あり】ブロックチェーン等に関するライティングのお仕事【継続者は単価アップ】",マーケティング
-9609,,https://www.lancers.jp/onsite/job/9609,(株)ACG (aozora91),"求人
+4510749,https://www.lancers.jp/work/detail/4510749,media_blog,"プロジェクト
+50,000 円 ~ 100,000 円 / 固定 0.50 円 / 文字","NEW
+【ブログ経験者歓迎/構成案の用意有り】""Webマーケ""に関するライティングのお仕事【長期継続あり】",マーケティング
+4510548,https://www.lancers.jp/work/detail/4510548,media_blog,"プロジェクト
+200,000 円 ~ 300,000 円 / 固定","NEW
+【時給制/稼働時間自由】メディア運営におけるディレクション業務ができる方【長期継続あり】",マーケティング
+4510715,https://www.lancers.jp/work/detail/4510715,media_blog,"プロジェクト
+~ 5,000 円 / 固定 1.00 円 / 文字","NEW
+【急募！】【文字単価1円〜】「Web3.0系」ジャンルに関するライティングのお仕事【恒常案件】",マーケティング
+4510682,https://www.lancers.jp/work/detail/4510682,エフアンドエスデザイン,"プロジェクト
+20,000 円 ~ 50,000 円 / 固定","NEW
+【高単価】弊社シャンプーの動画制作依頼について",マーケティング
+4510512,https://www.lancers.jp/work/detail/4510512,media_blog,"プロジェクト
+200,000 円 ~ 300,000 円 / 固定","NEW
+【ブロガー大歓迎】メディア運営のサポート業務のお仕事【時給制／月20万円以上可】",マーケティング
+4510424,https://www.lancers.jp/work/detail/4510424,media_blog,"プロジェクト
+200,000 円 ~ 300,000 円 / 固定","NEW
+【完全フルリモート/時給1,300円〜】メディア運営のサポートやディレクション業務【長期継続あり】",マーケティング
+9609,https://www.lancers.jp/onsite/job/9609,(株)ACG (aozora91),"求人
 後で決める",GAS（≒JavaScirpt）によるデータ加工処理のツール作成,GAS
-4505318,,https://www.lancers.jp/work/detail/4505318,株式会社くじらITサポートサービス,"プロジェクト
+4505318,https://www.lancers.jp/work/detail/4505318,株式会社くじらITサポートサービス,"プロジェクト
 ~ 5,000 円 / 固定","PR
 保護犬シェルターとドックランとグランピングの複合施設を開業したい。開業地の探し方でアドバイス下さい",システム
-4499105,,https://www.lancers.jp/work/detail/4499105,あーる,"プロジェクト
+4499105,https://www.lancers.jp/work/detail/4499105,あーる,"プロジェクト
 ~ 5,000 円 / 固定","PR
 【高単価4,000円】 自動車の解説Youtubeのリライト【7,000文字】",システム
-4510240,,https://www.lancers.jp/work/detail/4510240,msbridal,"プロジェクト
-100,000 円 ~ 200,000 円 / 固定","NEW
-毎月の請求書システムの開発",システム
-4509993,,https://www.lancers.jp/work/detail/4509993,Hyakki,"プロジェクト
-50,000 円 ~ 100,000 円 / 固定","NEW
-初回
-あなたがご存知のChat GPTのプロンプトを教えていただく作業",システム
-4510091,,https://www.lancers.jp/work/detail/4510091,高木,"プロジェクト
-200,000 円 ~ 300,000 円 / 固定","NEW
-初回
-【成果次第で時給2000円以上】TELアポインターの案件ご紹介できます",システム
-4510124,,https://www.lancers.jp/work/detail/4510124,d2editor,"プロジェクト
-~ 5,000 円 / 固定 0.07 円 / 文字","NEW
-【初心者・副業歓迎】アニメ・マンガ・ゲーム・映画・ミュージシャンの概要説明文作成【継続依頼あり】",システム
-4509988,,https://www.lancers.jp/work/detail/4509988,FR,"プロジェクト
+4511086,https://www.lancers.jp/work/detail/4511086,fullflat_LA,"プロジェクト
+20,000 円 ~ 50,000 円 / 固定","NEW
+法人決算と法人税申告に必要な書類作成及び説明（freee会計使用）",システム
+4510896,https://www.lancers.jp/work/detail/4510896,noevir77,"プロジェクト
 ~ 5,000 円 / 固定","NEW
-ベテラン・実力者急募！テレアポ・営業経験者必見★通常より報酬UPで募集中◎",システム
-4509874,,https://www.lancers.jp/work/detail/4509874,お母さん株式会社,"プロジェクト
-200,000 円 ~ 300,000 円 / 固定","NEW
-限定公開
-テーマ毎につくれる掲示板システム",システム
-4509638,,https://www.lancers.jp/work/detail/4509638,國武直樹,"プロジェクト
-50,000 円 ~ 100,000 円 / 固定","NEW
-オンライン予約システムのデザイン調整",システム
-4509583,,https://www.lancers.jp/work/detail/4509583,クラーク,"プロジェクト
-10,000 円 ~ 20,000 円 / 固定","NEW
+インスタグラム投稿作成",システム
+4510856,https://www.lancers.jp/work/detail/4510856,株式会社モンスターズ,"プロジェクト
+1,000,000 円 ~ 3,000,000 円 / 固定","NEW
+Shopify カスタムアプリの開発（独自の評価指標を持つ商品レビュー機能）",システム
+4510697,https://www.lancers.jp/work/detail/4510697,畠井 勇太,"プロジェクト
+20,000 円 ~ 50,000 円 / 固定","NEW
 2回目
-【1枚1,500円～】ＥＣモールへ掲載する商品画像加工　デザイナーさん募集〈ヤフー ヤフショ〉",システム
-4509546,,https://www.lancers.jp/work/detail/4509546,ogatahiroaki,"プロジェクト
-300,000 円 ~ 500,000 円 / 固定","NEW
-初回
-22ページのwebサイト制作",システム
-4509611,,https://www.lancers.jp/work/detail/4509611,重田,"プロジェクト
+新規商品リリースにともなう、取扱説明書の作成",システム
+4510731,https://www.lancers.jp/work/detail/4510731,重田,"プロジェクト
 50,000 円 ~ 100,000 円 / 固定 1.00 円 / 文字","NEW
 【継続依頼あり】様々なジャンルのライティング案件",システム
+4510542,https://www.lancers.jp/work/detail/4510542,ランサーズ株式会社,"プロジェクト
+~ 5,000 円 / 固定","NEW
+【ランサーズ紹介】トラック買取・販売事業を行う企業の社内ヘルプデスク（リモートOK/横浜・京都）",システム
+4510508,https://www.lancers.jp/work/detail/4510508,自分らしい働き方をサポート,"プロジェクト
+20,000 円 ~ 50,000 円 / 固定 0.50 円 / 文字","NEW
+【緊急募集 長期契約】1000文字～3000文字のさまざまな案件",システム
+4510437,https://www.lancers.jp/work/detail/4510437,タグ株式会社,"プロジェクト
+20,000 円 ~ 50,000 円 / 固定","NEW
+業務アプリデザイン：UI/UXデザイン",システム
+4510391,https://www.lancers.jp/work/detail/4510391,株式会社タイズ,"プロジェクト
+50,000 円 ~ 100,000 円 / 固定","NEW
+初回
+【ママさん／初めての方歓迎】簡単なスカウトメール送信業務【継続案件】",システム

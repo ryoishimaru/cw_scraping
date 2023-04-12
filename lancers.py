@@ -10,7 +10,7 @@ from yaml.loader import SafeLoader
 with open('keywords.yml') as f:
     kw = yaml.load(f, Loader=SafeLoader)
 latest_record_csv = 'lancers_latest_1000ids.csv'
-latest_jobs = pd.read_csv(latest_record_csv)
+latest_jobs = pd.read_csv(latest_record_csv, dtype={'job_id':str})
 latest_ids = latest_jobs['job_id'].tolist()
 
 # Set up EmailSender for gmail
