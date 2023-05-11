@@ -5,6 +5,7 @@ from redmail import gmail
 import pandas as pd
 import yaml
 from yaml.loader import SafeLoader
+from webdriver_manager.chrome import ChromeDriverManager
 
 # Configurations
 with open('keywords.yml') as f:
@@ -18,7 +19,11 @@ email = "ryo.ishimaru.kyoto@gmail.com"
 gmail.user_name = email
 gmail.password = 'ztbpamtijsfuffcy'
 
-driver = webdriver.Chrome('./chromedriver')
+try:
+    driver = webdriver.Chrome('./chromedriver')
+except :
+    driver = webdriver.Chrome(ChromeDriverManager().install())
+
 password = "Tw35dfgcs"
 keywords = kw['keywords']
 ng_words = kw['ng_words'] #keywords to be ignored in job description
