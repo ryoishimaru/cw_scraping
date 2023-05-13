@@ -5,6 +5,8 @@ from redmail import gmail
 import pandas as pd
 import yaml
 from yaml.loader import SafeLoader
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 # Configurations
 with open('keywords.yml') as f:
@@ -19,6 +21,8 @@ gmail.user_name = email
 gmail.password = 'ztbpamtijsfuffcy'
 
 driver = webdriver.Chrome('./chromedriver')
+# 最大の読み込み時間を設定。最大30秒待機できるようにする。
+wait = WebDriverWait(driver=driver, timeout=30)
 
 password = "Tw35dfgcs"
 keywords = kw['keywords']
@@ -27,16 +31,21 @@ ng_words = kw['ng_words'] #keywords to be ignored in job description
 # login
 try:
     driver.get('https://crowdworks.jp/login?ref=toppage_hedder')
+    wait.until(EC.presence_of_all_elements_located)
     driver.find_element(By.NAME, 'username').send_keys(email)
     driver.find_element(By.NAME, 'password').send_keys(password)
     driver.find_element(by=By.CLASS_NAME, value='button-login').click()
     # Move to '仕事をさがす' page after login suucessfully
     driver.get('https://crowdworks.jp/public/jobs?category=jobs&order=score&ref=mypage_nav1')
+    # 要素が全て検出できるまで待機する
+    print('Waiting till the whole page is read...')
+    wait.until(EC.presence_of_all_elements_located)
 
     new_jobs = {'job_id': [], 'title':[], 'url':[], 'client_name':[], 'price':[], 'keyword': []}
     for k in keywords:
         print(f'Working on {k}...')
-        driver.find_element(By.NAME, 'search[keywords]').send_keys(k)
+        driver.find_element(By.NAME, value='search[keywords]').send_keys(k)
+        #driver.find_element(by=By.XPATH, value='//div[@class="content_header_above"]/div[@class="search_index_freeword"]/input[@name="search[keywords]"]')
         driver.find_element(by=By.CLASS_NAME, value='cw-input_group_button').click()
         job_ids = driver.find_elements(by=By.XPATH, value='//div[@class="search_results"]/ul/li')
         urls = driver.find_elements(by=By.XPATH, value='//h3[@class="item_title"]/a')
