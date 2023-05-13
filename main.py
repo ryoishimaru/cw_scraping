@@ -36,9 +36,12 @@ try:
     driver.find_element(By.NAME, 'password').send_keys(password)
     driver.find_element(by=By.CLASS_NAME, value='button-login').click()
     # Move to '仕事をさがす' page after login suucessfully
-    driver.get('https://crowdworks.jp/public/jobs?category=jobs&order=score&ref=mypage_nav1')
+    # driver.get('https://crowdworks.jp/public/jobs?category=jobs&order=score&ref=mypage_nav1')
+    # 「仕事を探す」ボタンをクリック
+    driver.find_element(by=By.CLASS_NAME, value='icon_nav_search_jobs').click()
+
     # 要素が全て検出できるまで待機する
-    print('Waiting till the whole page is read...')
+    print('Waiting till the whole page is located...')
     wait.until(EC.presence_of_all_elements_located)
 
     new_jobs = {'job_id': [], 'title':[], 'url':[], 'client_name':[], 'price':[], 'keyword': []}
