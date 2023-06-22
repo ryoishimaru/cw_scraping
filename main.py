@@ -34,7 +34,7 @@ try:
     wait.until(EC.presence_of_all_elements_located)
     driver.find_element(By.NAME, 'username').send_keys(email)
     driver.find_element(By.NAME, 'password').send_keys(password)
-    driver.find_element(by=By.CLASS_NAME, value='button-login').click()
+    driver.find_element(by=By.CLASS_NAME, value='_2Hilf._1j2OQ').click()
     # Move to '仕事をさがす' page after login suucessfully
     # driver.get('https://crowdworks.jp/public/jobs?category=jobs&order=score&ref=mypage_nav1')
     # 「仕事を探す」ボタンをクリック
@@ -48,7 +48,6 @@ try:
     for k in keywords:
         print(f'Working on {k}...')
         driver.find_element(By.NAME, value='search[keywords]').send_keys(k)
-        #driver.find_element(by=By.XPATH, value='//div[@class="content_header_above"]/div[@class="search_index_freeword"]/input[@name="search[keywords]"]')
         driver.find_element(by=By.CLASS_NAME, value='_3bETX').click()
         # driver.find_element(by=By.CLASS_NAME, value='cw-input_group_button').click()
         job_ids = driver.find_elements(by=By.XPATH, value='//div[@class="search_results"]/ul/li')
