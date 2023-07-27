@@ -28,27 +28,30 @@ password = "Tw35dfgcs"
 keywords = kw['keywords']
 ng_words = kw['ng_words'] #keywords to be ignored in job description
 
+job_search_url = 'https://crowdworks.jp/public/jobs/search?keep_search_criteria=true&order=score&hide_expired=true&search%5Bkeywords%5D='
+
 # login
 try:
-    driver.get('https://crowdworks.jp/login?ref=toppage_hedder')
-    wait.until(EC.presence_of_all_elements_located)
-    driver.find_element(By.NAME, 'username').send_keys(email)
-    driver.find_element(By.NAME, 'password').send_keys(password)
-    driver.find_element(by=By.CLASS_NAME, value='_2Hilf._1j2OQ').click()
+    # driver.get('https://crowdworks.jp/login?ref=toppage_hedder')
+    # wait.until(EC.presence_of_all_elements_located)
+    # driver.find_element(By.NAME, 'username').send_keys(email)
+    # driver.find_element(By.NAME, 'password').send_keys(password)
+    # driver.find_element(by=By.CLASS_NAME, value='_2Hilf._1j2OQ').click()
     # Move to '仕事をさがす' page after login suucessfully
     # driver.get('https://crowdworks.jp/public/jobs?category=jobs&order=score&ref=mypage_nav1')
     # 「仕事を探す」ボタンをクリック
-    driver.find_element(by=By.CLASS_NAME, value='icon_nav_search_jobs').click()
+    # driver.find_element(by=By.CLASS_NAME, value='icon_nav_search_jobs').click()
 
     # 要素が全て検出できるまで待機する
-    print('Waiting till the whole page is located...')
-    wait.until(EC.presence_of_all_elements_located)
+    # print('Waiting till the whole page is located...')
+    # wait.until(EC.presence_of_all_elements_located)
 
     new_jobs = {'job_id': [], 'title':[], 'url':[], 'client_name':[], 'price':[], 'keyword': []}
     for k in keywords:
         print(f'Working on {k}...')
-        driver.find_element(By.NAME, value='search[keywords]').send_keys(k)
-        driver.find_element(by=By.CLASS_NAME, value='_3bETX').click()
+        driver.get(f'{job_search_url}{k}')
+        # driver.find_element(By.NAME, value='search[keywords]').send_keys(k)
+        # driver.find_element(by=By.CLASS_NAME, value='_3bETX').click()
         # driver.find_element(by=By.CLASS_NAME, value='cw-input_group_button').click()
         job_ids = driver.find_elements(by=By.XPATH, value='//div[@class="search_results"]/ul/li')
         urls = driver.find_elements(by=By.XPATH, value='//h3[@class="item_title"]/a')

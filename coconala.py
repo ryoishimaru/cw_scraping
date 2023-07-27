@@ -47,7 +47,7 @@ try:
 
         for title, client, price in zip(job_titles, clients, prices):
             url = title.find_element(By.TAG_NAME, "a").get_attribute("href")
-            job_id = str(url.split('/')[-1])
+            job_id = int(url.split('/')[-1])
             title_name = title.text
             price_info = str(price.text)
             client_name = client.text
