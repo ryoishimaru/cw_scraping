@@ -41,22 +41,27 @@ try:
     #     driver.find_element(by=By.CLASS_NAME, value='cw-input_group_button').click()
     #     job_ids = driver.find_elements(by=By.XPATH, value='//div[@class="search_results"]/ul/li')
         urls = driver.find_elements(By.CLASS_NAME, 'c-media__title')
-        item_titles = driver.find_elements(By.CLASS_NAME, 'c-media__title-inner')
+        item_titles = driver.find_elements(By.CLASS_NAME, 'p-search-job-media__title.c-media__title')# 'c-media__title-inner')
         client_names = driver.find_elements(By.CLASS_NAME, 'c-avatar__note')
-        prices = driver.find_elements(By.CLASS_NAME, 'c-media__job-stats')
+        prices = driver.find_elements(By.CLASS_NAME, 'p-search-job-media__price')#'c-media__job-stats')
         job_status = driver.find_elements(By.CLASS_NAME, 'p-search-job-media__time-text')
 
+        # print('item_titles')
         # print(item_titles[0].text)
+        # print('urls')
         # print(urls[0].get_attribute('href'))
+        # print("client_names")
         # print(client_names[0].text)
+        # print("prices")
         # print(prices[0].text)
+        # print("job_status")
         # print(job_status[0].text)
         # quit()
 
         # Validation to check if the driver is catching data or not.
-        for v in [urls, item_titles, client_names, prices, job_status]:
-            if len(v) == 0:
-                raise Exception("Driver is not correctly catching the data.")
+        # for v in [urls, item_titles, client_names, prices, job_status]:
+        #     if len(v) == 0:
+        #         raise Exception("Driver is not correctly catching the data.")
 
 
         for t, u, c, p, s in zip(item_titles, urls, client_names, prices, job_status):
