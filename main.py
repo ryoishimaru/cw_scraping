@@ -14,7 +14,7 @@ from selenium.webdriver.chrome.service import Service
 # Configurations
 with open('keywords.yml') as f:
     kw = yaml.load(f, Loader=SafeLoader)
-latest_record_csv = 'latest_1000ids.csv'
+latest_record_csv = 'cw_latest_1000ids.csv'
 latest_jobs = pd.read_csv(latest_record_csv)
 latest_ids = latest_jobs['job_id'].tolist()
 
@@ -54,7 +54,7 @@ try:
             title_name = t.text
             price_info = str(p.text)
             client_name = c.text
-            if (job_id not in latest_ids) and (any(ext in title_name for ext in ng_words) != True) and ('タスク' not in price_info) and (client_name not in ['skillupai', 'Crewto']):
+            if (job_id not in latest_ids) and (any(ext in title_name for ext in ng_words) != True) and ('タスク' not in price_info) and (client_name not in ['skillupai', 'Crewto', 'Walk To See', 'tsuide2023']):
                 new_jobs['client_name'].append(client_name)
                 new_jobs['job_id'].append(job_id)
                 new_jobs['title'].append(title_name)
