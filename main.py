@@ -79,14 +79,13 @@ try:
             new_jobs['price'].append(price_info)
             new_jobs['keyword'].append(k)
 
-            print(f'************Found a new job!************')
             print(title)
-            print(f'****************************************')
+            print('---')
 
         driver.find_element(By.NAME, 'search[keywords]').clear()
 
     new_jobs = pd.DataFrame(new_jobs).drop_duplicates(subset=['job_id'])
-    new_jobs = new_jobs.reset_index()
+    new_jobs = new_jobs.reset_index(drop=True)
     print(f'{len(new_jobs)} new jobs detected.')
 
     all_jobs = pd.concat([latest_jobs, new_jobs]).drop_duplicates(subset=['job_id'])
