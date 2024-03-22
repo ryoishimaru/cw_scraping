@@ -1,6 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-#from time import sleep
+from time import sleep
 from redmail import gmail
 import pandas as pd
 import yaml
@@ -15,7 +15,7 @@ from selenium.webdriver.chrome.service import Service
 with open('keywords.yml') as f:
     kw = yaml.load(f, Loader=SafeLoader)
 latest_record_csv = 'cw_latest_1000ids.csv'
-latest_jobs = pd.read_csv(latest_record_csv)
+latest_jobs = pd.read_csv(latest_record_csv, dtype={'job_id':str})
 latest_ids = latest_jobs['job_id'].tolist()
 
 # Set up EmailSender for gmail
@@ -25,7 +25,7 @@ gmail.password = 'ztbpamtijsfuffcy'
 
 # Chrome WebDriverのオプションを設定
 options = Options()
-options.add_argument('--headless')
+# options.add_argument('--headless')
 # chromedriverのパスを指定せずにChromeドライバーのインスタンスを作成
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 # driver = webdriver.Chrome('./chromedriver')
@@ -44,30 +44,49 @@ try:
     for k in keywords:
         print(f'Working on {k}...')
         driver.get(f'{job_search_url}{k}')
-        job_ids = driver.find_elements(by=By.XPATH, value='//div[@class="search_results"]/ul/li')
-        urls = driver.find_elements(by=By.XPATH, value='//h3[@class="item_title"]/a')
-        item_titles = driver.find_elements(By.CLASS_NAME, 'item_title')
-        client_names = driver.find_elements(by=By.XPATH, value='//div[@class="client-information"]/span[@class="user-name"]')
-        prices = driver.find_elements(By.CLASS_NAME, 'entry_data_row')
-        for j, t, u, c, p in zip(job_ids, item_titles, urls, client_names, prices):
-            job_id = int(j.get_attribute("data-job_offer_id"))
-            title_name = t.text
-            price_info = str(p.text)
-            client_name = c.text
-            if (job_id not in latest_ids) and (any(ext in title_name for ext in ng_words) != True) and ('タスク' not in price_info) and (client_name not in ['skillupai', 'Crewto', 'Walk To See', 'tsuide2023']):
-                new_jobs['client_name'].append(client_name)
-                new_jobs['job_id'].append(job_id)
-                new_jobs['title'].append(title_name)
-                new_jobs['url'].append(u.get_attribute('href'))
-                new_jobs['price'].append(price_info)
-                new_jobs['keyword'].append(k)
-                print(title_name)
-                print('---')
+
+        titles = driver.find_elements(by=By.CLASS_NAME, value='_1b1CQ.UKSxm')
+        status_days = driver.find_elements(by=By.CLASS_NAME, value='_3Xr-k')
+        client_names = driver.find_elements(by=By.CLASS_NAME, value='_3HCOB')
+        job_boxes = driver.find_elements(by=By.CLASS_NAME, value='xwvtE')
+
+
+        for title, status, client_name, job_box in zip(titles, status_days, client_names, job_boxes):
+            title_block = title.find_element(by=By.TAG_NAME, value='a') #仕事名が格納されているブロック。hrefでURLのハイパーリンクも指定されている。
+            url = title_block.get_attribute('href')
+            job_id = url.split('/')[-1]
+            if job_id in latest_ids:
+                continue
+
+            title = title.text
+            if any(ext in title for ext in ng_words) == True:
+                # print(f'{title} has NG words so skip...')
+                continue
+
+            client_name = client_name.text
+            if client_name in ['skillupai', 'skillup-next', 'Crewto', 'Walk To See', 'tsuide2023', 'AxrossRecipe', '北村 渉']:
+                continue
+
+            status = status.text
+            if '募集終了' in status:
+                continue
+
+            price_info = job_box.find_element(by=By.CLASS_NAME, value='XMO7X').text
+
+            new_jobs['client_name'] = client_name
+            new_jobs['job_id'].append(job_id)
+            new_jobs['title'].append(title)
+            new_jobs['url'].append(url)
+            new_jobs['price'].append(price_info)
+            new_jobs['keyword'].append(k)
+
+            print(f'************Found a new job!************')
+            print(title)
+            print(f'****************************************')
+
         driver.find_element(By.NAME, 'search[keywords]').clear()
 
     new_jobs = pd.DataFrame(new_jobs).drop_duplicates(subset=['job_id'])
-    if len(new_jobs) > 0:
-        new_jobs = new_jobs[~new_jobs['price'].str.contains('募集終了')]
     print(f'{len(new_jobs)} new jobs detected.')
 
     all_jobs = pd.concat([latest_jobs, new_jobs]).drop_duplicates(subset=['job_id'])
