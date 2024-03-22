@@ -23,7 +23,7 @@ gmail.password = 'ztbpamtijsfuffcy'
 
 # Chrome WebDriverのオプションを設定
 options = Options()
-# options.add_argument('--headless')
+options.add_argument('--headless')
 # chromedriverのパスを指定せずにChromeドライバーのインスタンスを作成
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
