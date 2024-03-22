@@ -50,7 +50,6 @@ try:
         client_names = driver.find_elements(by=By.CLASS_NAME, value='_3HCOB')
         job_boxes = driver.find_elements(by=By.CLASS_NAME, value='xwvtE')
 
-
         for title, status, client_name, job_box in zip(titles, status_days, client_names, job_boxes):
             title_block = title.find_element(by=By.TAG_NAME, value='a') #仕事名が格納されているブロック。hrefでURLのハイパーリンクも指定されている。
             url = title_block.get_attribute('href')
@@ -73,7 +72,7 @@ try:
 
             price_info = job_box.find_element(by=By.CLASS_NAME, value='XMO7X').text
 
-            new_jobs['client_name'] = client_name
+            new_jobs['client_name'].append(client_name)
             new_jobs['job_id'].append(job_id)
             new_jobs['title'].append(title)
             new_jobs['url'].append(url)
@@ -87,6 +86,7 @@ try:
         driver.find_element(By.NAME, 'search[keywords]').clear()
 
     new_jobs = pd.DataFrame(new_jobs).drop_duplicates(subset=['job_id'])
+    new_jobs = new_jobs.reset_index()
     print(f'{len(new_jobs)} new jobs detected.')
 
     all_jobs = pd.concat([latest_jobs, new_jobs]).drop_duplicates(subset=['job_id'])
