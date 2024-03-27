@@ -63,7 +63,7 @@ try:
                 continue
 
             client_name = client_name.text
-            if client_name in ['skillupai', 'skillup-next', 'Crewto', 'Walk To See', 'tsuide2023', 'AxrossRecipe', '北村 渉']:
+            if client_name in ['skillupai', 'skillup-next', 'Crewto', 'Walk To See', 'tsuide2023', 'AxrossRecipe', '北村 渉', 'ASTU']:
                 continue
 
             status = status.text
