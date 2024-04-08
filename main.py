@@ -10,6 +10,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
+from selenium.common.exceptions import NoSuchElementException
 
 # Configurations
 with open('keywords.yml') as f:
@@ -45,15 +46,30 @@ try:
         print(f'Working on {k}...')
         driver.get(f'{job_search_url}{k}')
 
-        titles = driver.find_elements(by=By.CLASS_NAME, value='_1b1CQ.UKSxm')
-        status_days = driver.find_elements(by=By.CLASS_NAME, value='_3Xr-k')
-        client_names = driver.find_elements(by=By.CLASS_NAME, value='_3HCOB')
-        job_boxes = driver.find_elements(by=By.CLASS_NAME, value='xwvtE')
+        titles = driver.find_elements(by=By.CLASS_NAME, value='MKKGz.Rsglb')
+        status_days = driver.find_elements(by=By.CLASS_NAME, value='XFuYV')
+        client_names = driver.find_elements(by=By.CLASS_NAME, value='q4ZDq')
+        job_boxes = driver.find_elements(by=By.CLASS_NAME, value='NKcON')
+
+        # print(len(titles))
+        # print(len(status_days))
+        # print(len(client_names))
+        # print(len(job_boxes))
 
         for title, status, client_name, job_box in zip(titles, status_days, client_names, job_boxes):
+            # Priceの情報はクラス名が時間単価か固定報酬かタスクか、などの契約形態により変わるためクラス名を指定する。タスクだったら無視
+            try:
+                price_info = job_box.find_element(by=By.CLASS_NAME, value='jHGOE').text
+            except NoSuchElementException:
+                try:
+                    price_info = job_box.find_element(by=By.CLASS_NAME, value='Z1CgZ').text
+                except NoSuchElementException:
+                    continue
+
             title_block = title.find_element(by=By.TAG_NAME, value='a') #仕事名が格納されているブロック。hrefでURLのハイパーリンクも指定されている。
             url = title_block.get_attribute('href')
             job_id = url.split('/')[-1]
+
             if job_id in latest_ids:
                 continue
 
@@ -69,8 +85,6 @@ try:
             status = status.text
             if '募集終了' in status:
                 continue
-
-            price_info = job_box.find_element(by=By.CLASS_NAME, value='XMO7X').text
 
             new_jobs['client_name'].append(client_name)
             new_jobs['job_id'].append(job_id)
