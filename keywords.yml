@@ -5,7 +5,7 @@ keywords:
   - API
   - tableau
   - データポータル
-  - Looker
+  - looker
   - QuickSight
   - gcp
   - 機械学習
@@ -14,6 +14,7 @@ keywords:
   - マーケティング
   - 画像認識
   - RPA
+  - 自動化
   - GAS
   - sql
   - スプシ
@@ -24,6 +25,7 @@ keywords:
   - 楽天
   - yahoo
   - 集計
+  - レポート
 ng_words:
   - スマホ
   - コピペ
