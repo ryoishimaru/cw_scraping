@@ -26,7 +26,7 @@ gmail.password = 'ztbpamtijsfuffcy'
 
 # Chrome WebDriverのオプションを設定
 options = Options()
-options.add_argument('--headless')
+# options.add_argument('--headless')
 # chromedriverのパスを指定せずにChromeドライバーのインスタンスを作成
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 # driver = webdriver.Chrome('./chromedriver')
@@ -43,13 +43,13 @@ job_search_url = 'https://crowdworks.jp/public/jobs/search?keep_search_criteria=
 try:
     new_jobs = {'job_id': [], 'title':[], 'url':[], 'client_name':[], 'price':[], 'keyword': []}
     for k in keywords:
-        print(f'Working on {k}...')
+        print(f'Searching new jobs for {k}...')
         driver.get(f'{job_search_url}{k}')
 
-        titles = driver.find_elements(by=By.CLASS_NAME, value='MKKGz.Rsglb')
-        status_days = driver.find_elements(by=By.CLASS_NAME, value='XFuYV')
-        client_names = driver.find_elements(by=By.CLASS_NAME, value='q4ZDq')
-        job_boxes = driver.find_elements(by=By.CLASS_NAME, value='NKcON')
+        titles = driver.find_elements(by=By.CLASS_NAME, value='iCeus.TVMAc')
+        status_days = driver.find_elements(by=By.CLASS_NAME, value='bZKIt')
+        client_names = driver.find_elements(by=By.CLASS_NAME, value='uxHdW')
+        job_boxes = driver.find_elements(by=By.CLASS_NAME, value='mLant')
 
         # print(len(titles))
         # print(len(status_days))
@@ -59,10 +59,10 @@ try:
         for title, status, client_name, job_box in zip(titles, status_days, client_names, job_boxes):
             # Priceの情報はクラス名が時間単価か固定報酬かタスクか、などの契約形態により変わるためクラス名を指定する。タスクだったら無視
             try:
-                price_info = job_box.find_element(by=By.CLASS_NAME, value='jHGOE').text
+                price_info = job_box.find_element(by=By.CLASS_NAME, value='AIu_G').text
             except NoSuchElementException:
                 try:
-                    price_info = job_box.find_element(by=By.CLASS_NAME, value='Z1CgZ').text
+                    price_info = job_box.find_element(by=By.CLASS_NAME, value='zTNhw').text
                 except NoSuchElementException:
                     continue
 

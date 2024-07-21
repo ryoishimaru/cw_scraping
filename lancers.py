@@ -97,7 +97,7 @@ try:
     if len(all_jobs) > 1000:
         all_jobs = all_jobs.iloc[-1000:, :]
     all_jobs.to_csv(latest_record_csv, index=False)
-    print('New jobs added to latest1000ids.csv')
+    print(f'New jobs added to {latest_record_csv}')
 
 finally:
     driver.close()
