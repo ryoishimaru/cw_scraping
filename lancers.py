@@ -6,8 +6,8 @@ import pandas as pd
 import yaml
 from yaml.loader import SafeLoader
 from selenium.webdriver.chrome.options import Options
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.chrome.service import Service
+# from webdriver_manager.chrome import ChromeDriverManager
+# from selenium.webdriver.chrome.service import Service
 
 # Configurations
 with open('keywords.yml') as f:
@@ -25,7 +25,8 @@ gmail.password = 'ztbpamtijsfuffcy'
 options = Options()
 options.add_argument('--headless')
 # chromedriverのパスを指定せずにChromeドライバーのインスタンスを作成
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+# driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+driver = webdriver.Chrome(options=options)
 
 password = "pkD9E5&amssEcc?D"
 keywords = kw['keywords']

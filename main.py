@@ -8,8 +8,8 @@ from yaml.loader import SafeLoader
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.chrome.service import Service
+# from webdriver_manager.chrome import ChromeDriverManager
+# from selenium.webdriver.chrome.service import Service
 from selenium.common.exceptions import NoSuchElementException
 
 # Configurations
@@ -28,8 +28,8 @@ gmail.password = 'ztbpamtijsfuffcy'
 options = Options()
 options.add_argument('--headless')
 # chromedriverのパスを指定せずにChromeドライバーのインスタンスを作成
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-# driver = webdriver.Chrome('./chromedriver')
+# driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+driver = webdriver.Chrome(options=options)
 # 最大の読み込み時間を設定。最大30秒待機できるようにする。
 wait = WebDriverWait(driver=driver, timeout=30)
 
